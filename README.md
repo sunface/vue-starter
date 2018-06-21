@@ -1,6 +1,6 @@
-# meq-website
+# vue-starter
 
-> A Vue.js project
+> A vuejs starter project integrated with vuex, vue-router, less, iview
 
 ## Build Setup
 
