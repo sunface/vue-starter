@@ -2,7 +2,7 @@
 // 该模块用来请求API网关
 import axios from 'axios'
 import { Message } from 'iview'
-
+import { getToken } from '@/utils/auth'
 
 // create an axios instance
 const service = axios.create({
@@ -13,6 +13,8 @@ const service = axios.create({
 // request interceptor
 service.interceptors.request.use(
   config => {
+    // 设置token
+    config.headers['MF-Token'] = getToken()
     return config
   }, 
   error => {
@@ -27,7 +29,7 @@ service.interceptors.response.use(
     if (response.data.err_code == 1054) {
       Message.error({
         content: response.data.message,
-        duration: 5 * 1000
+        duration: 3
       })
       setTimeout(function() {
         window.location.href = "/login"
@@ -39,7 +41,7 @@ service.interceptors.response.use(
     if (response.data.err_code != 0) {
       Message.error({
         content: response.data.message+' : '+ response.data.err_code,
-        duration: 3 * 1000
+        duration: 3 
       })
       return response
     }
@@ -48,7 +50,7 @@ service.interceptors.response.use(
   error => {
     Message.error({
       content: error.message,
-      duration: 5 * 1000
+      duration: 3
     })
     return Promise.reject(error)
   })

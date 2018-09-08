@@ -5,8 +5,9 @@ import App from './App'
 import router from './router'
 import iView from 'iview';
 
+// 全局范围加载通用样式，每个vue page里无需重复引入
 import '!style-loader!css-loader!less-loader!./theme/override.less'
-import '!style-loader!css-loader!less-loader!./theme/common.less'
+import '!style-loader!css-loader!less-loader!./theme/gcss.less'
 
 Vue.config.productionTip = false
 
@@ -16,7 +17,7 @@ Vue.use(iView);
 
 import store from './store'
 
-
+ 
 router.beforeEach((to, _, next) => {
     next()
 })

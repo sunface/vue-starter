@@ -3,11 +3,14 @@
       <div style="margin-top:300px;margin-left:45%">{{hello}} {{world}}</div>
       <div style="margin-left:45%">
         {{world}}
-        <div>{{getAddr}}</div>
+        <div class="margin-left-20">{{getAddr}}</div>
+        你好中国人
       </div>
 
-      
-  
+      <Button>Default</Button>
+    <Button type="primary">Primary</Button>
+    <Button type="dashed">Dashed</Button>
+    <Button type="text">Text</Button>
   </div>
 </template>
 
@@ -38,13 +41,14 @@ export default {
   },
   mounted() {
     this.$store.dispatch('setService', 'hello')
-    // this.$store.state.misc.service = 'hello'
+
     this.hello = this.$store.state.misc.service
     this.world = this.$t('common.test')
 
     setTimeout(() => {
         this.world = "new world"
     }, 3000)
+
 
     request({
         url: '/login',
@@ -53,19 +57,23 @@ export default {
           user: '111'
         }
     }).then(res => {
-        console.log(res)
     })
   }
 }
 </script>
 
 <style lang="less">
-.ivu-modal-close {
+.ivu-modal-close { 
   visibility: hidden !important;
 }
+
 </style>
 
-<style lang="less" scoped>
-@import "../theme/common.less";
+<style lang="less" scoped> 
+@import "../theme/gvar.less";
+.margin-left-20 {
+  color: @text-light-color
+}
+
 
 </style>

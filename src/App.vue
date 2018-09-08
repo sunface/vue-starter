@@ -15,3 +15,7 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
 }
 </style>
+
+
+<style lang="less" scoped> 
+</style>
