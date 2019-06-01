@@ -7,7 +7,8 @@ import iView from 'iview';
 
 // 全局范围加载通用样式，每个vue page里无需重复引入
 import '!style-loader!css-loader!less-loader!./theme/override.less'
-import '!style-loader!css-loader!less-loader!./theme/gcss.less'
+import '!style-loader!css-loader!less-loader!./theme/class.less'
+import '!style-loader!css-loader!less-loader!./theme/var.less'
 
 Vue.config.productionTip = false
 
